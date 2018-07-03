@@ -1,7 +1,9 @@
 package arrays;
-
-/*package whatever //do not write package name here */
-
+/*
+ * Equilibrium index of an array is an index such that the sum of elements at lower indexes is equal to the sum of elements at higher indexes.
+ * Given an array find the equilibrium
+ * 
+ */
 import java.util.*;
 import java.lang.*;
 import java.io.*;
@@ -17,39 +19,34 @@ class Equilibrium {
 		    int size=sc.nextInt();
 		    if(size==1){
 		    	sc.nextInt();
-		        System.out.println(1);
+		        System.out.println(0);
 		    }
 		    else{
-		        int sumLeft=0;
 		        int arr[]=new int[size];
+		        // Get the total sum of the array as sum
+		        int arrsum=0;
 		        for(int i=0;i<size;i++){
-		            arr[i]=sc.nextInt();
+		        	int val=sc.nextInt();
+		        	arrsum+=val;
+		            arr[i]=val;
 		        }
-	
-		        mainloop : for(int i=0;i<size;i++){     
-		            int diff=sumLeft;
-		            if(i==0) {
-		            	sumLeft+=arr[i];	
-		            	continue;
-		            }
-		            //from 2nd element
-		            for(int j=i+1;j<size;j++)
-		            {
-		               diff-= arr[j];
-		               if(diff<0) {
-		                	break;
-		               }
-		               else if(diff==0){
-		                   equilibrium=i+1;
-		                   break mainloop;
-		               }
-		            }
-		            sumLeft+=arr[i];
+		        System.out.println("The array entered is :"+Arrays.toString(arr));	
+		        System.out.println("The array sum is :"+arrsum);
+		        int leftsum=0;
+		        for(int i=0;i<size;i++) {
+		        	//Update sum to get the right sum.
+		        	arrsum = arrsum - arr[i];
+		        	//If leftsum is equal to sum, then return current index.
+		        	if(leftsum==arrsum)
+		        	{
+		        		equilibrium=i;
+		        		break;
+		        	}
+		        	leftsum = leftsum + arr[i]; // update leftsum for next iteration.
 		        }
-		        System.out.println(equilibrium);
-		    }    
-		    test--;
+		        System.out.println("The equilibrium point is "+equilibrium);
+		    }
 		}
-		
+		sc.close();
 	}
 }

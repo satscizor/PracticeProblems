@@ -2,6 +2,15 @@ package arrays;
 
 import java.util.Arrays;
 
+/*
+ * Different functions of a sorted rotated array
+ * 
+ * get an array
+ * sort it
+ * rotate it
+ * find the pivot and the max element
+ * implement a search method
+ */
 public class SortedRotatedArray {
    public static void main(String[] args) {
 	int  arr[]=new int [] {4,5,6,3,2,1,8,9,10,11,12,7};
@@ -75,7 +84,12 @@ private static int findPivot(int[] arr) {
 		return pv(arr, low, mid-1);
 	return -1;	
 }
-
+/*
+ * Juggling algorithm
+ * 
+ * Divide the array into sets beased on the GCD between arr size and the shift size
+ * 
+ */
 private static void rotateLeft(int[] arr, int d) {      
        int n=arr.length;
        int gcd=GCD(d, n);

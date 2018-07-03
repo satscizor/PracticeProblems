@@ -5,6 +5,10 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+/*
+ * Given an array of numbers. make the biggest number by rearranging those.  
+ * 
+ */
 public class ArrangeNumbersToGiveBiggestNumber {
 public static void main(String[] args) {
 	int [] arr1=new int[] {1, 34, 3, 98, 9, 76, 45, 4};
@@ -14,7 +18,7 @@ public static void main(String[] args) {
 }
 
 private static String printBiggestNumber(int[] arr) {
-	Comparator comp=new Comparator<String>() {
+	Comparator<String> comp=new Comparator<String>() {
 		@Override
 		public int compare(String x, String y) {
 			String xy=x+y;

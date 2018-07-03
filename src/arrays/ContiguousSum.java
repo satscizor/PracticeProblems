@@ -1,58 +1,81 @@
 package arrays;
 
-/*package whatever //do not write package name here */
+/*
+ * Find all subarrays in an array sum of which matches a given sum
+ */
 
 import java.util.*;
 
 class ContiguousSum {
 	public static void main (String[] args) {
-		//code
-		
+			
 		Scanner sc=new Scanner(System.in);
-		System.out.println("Enter the number of tests: ");
 		int test=sc.nextInt();
 		while(test>0){
-			System.out.println();
-			System.out.println("*****************************");
 		    int num=sc.nextInt();
-		    System.out.println("num is ====>"+num);
 		    int sum=sc.nextInt();
-		    System.out.println("sum is ====>"+sum);
 		    int [] arr=new int [num];
-		    int start=0;
-		    int end=0;
+
 		    for(int i=0;i<num;i++) {
 		        arr[i]=sc.nextInt();
 		    }
-		    mainloop:for(int i=0;i<num;i++){
-		        int tempsum=0;
-		        printArr(arr);
-		        for(int j=i;j>=0;j--){
-		            tempsum+=arr[j];
-		            System.out.println("TEMPSUM is ------>"+tempsum);
-		            if(tempsum==sum){
-		            System.out.println("Tempsum matches : ");		     
-		            start=j+1;
-		            end=i+1;
-		            System.out.println("Start-->"+start);
-		            System.out.println("End-->"+end);
-		            break mainloop;
+	        System.out.println(Arrays.toString(arr));
+	        //code O(n^2) solution 2 loops
+		    NaiveSolution(num, sum, arr);
+		    BetterSolution( arr,sum);
+		    test--;
+
+		}
+		sc.close();
+	}
+	//O(n) solution
+		private static void BetterSolution(int[] arr, int k) {
+		    Map<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
+		    List<Integer> initial = new ArrayList<Integer>();
+		    initial.add(-1);
+		    map.put(0, initial);
+		    int preSum = 0;
+
+		    // Loop across all elements of the array
+		    for(int i=0; i< arr.length; i++) {
+		        preSum += arr[i];
+		        // If point where sum = (preSum - k) is present, it means that between that 
+		        // point and this, the sum has to equal k
+		        if(map.containsKey(preSum - k)) {   // Subarray found 
+		            List<Integer> startIndices = map.get(preSum - k);
+		            for(int start : startIndices) {
+		                System.out.println("Start: "+ (start+1)+ "\tEnd: "+ i);
 		            }
 		        }
+
+		        List<Integer> newStart = new ArrayList<Integer>();
+		        if(map.containsKey(preSum)) { 
+		            newStart = map.get(preSum);
+		        }
+		        newStart.add(i);
+		        map.put(preSum, newStart);
 		    }
-		    test--;
-		    if(start==0&&end==0&&arr.length>1)
-		    System.out.println("-1");
-		    else
-		    System.out.println(start+" "+end);
 		}
+		
+		
+	
+
+	private static void NaiveSolution(int num, int sum, int[] arr) {
+	    int start=-1;
+	    int end=-1;
+		for(int i=0;i<num;i++){
+		    int tempsum=0;
+		    for(int j=i;j>=0;j--){
+		        tempsum+=arr[j];
+		        if(tempsum==sum){	     
+		        start=j;
+		        end=i;
+		        System.out.println("Found sum between index ["+start+"] and ["+end+"]");
+		        }
+		    }
+		}
+		if(start==-1&&end==-1&&arr.length>1)
+			System.out.println("-1");
 	}
 	
-	public static void printArr(int arr[]) {
-		System.out.println("ARRAY IS ----->");
-		for(int i=0;i<arr.length;i++) {
-			System.out.print(arr[i]+"|");
-		}
-		System.out.println();
-	}
 }

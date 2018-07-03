@@ -19,12 +19,13 @@ public class SmallestSubArraySumGreaterThanX {
 	     }
 	     int start=0,end=0,sum=0,len=n+1,minlen=n+1;
 	     for(int i=0;i<n;i++) {
+	    	 
 	    	 sum+=arr[i];
 	    	 if(sum>x) {
-	    		 len=(end-start)+1;
+	    		 len=1+(end-start);
 	    		 while(sum>x) {
 	    			 sum-=arr[start];
-	    			 len=(end-start)+1;
+	    			 len=1+(end-start);
 	    			 start++;		 
 	    		 }
 	    		 if(len<minlen)

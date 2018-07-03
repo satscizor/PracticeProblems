@@ -1,5 +1,8 @@
 package arrays;
-
+/*
+ * Find the duplicates in an array which has numbers from 1....N
+ * 
+ */
 public class FindDuplicatesInArray1ToN {
 public static void main(String[] args) {
 	int  arr[]=new int [] {4,5,6,3,2,1,8,9,10,12,11,3,12,7};

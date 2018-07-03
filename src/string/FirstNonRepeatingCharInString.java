@@ -1,10 +1,13 @@
-package arrays;
+package string;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
-
-public class FirstNonRepeatingCharInArray {
+/*
+ * FirstNonRepeating character in String
+ * 
+ */
+public class FirstNonRepeatingCharInString {
 public static void main(String[] args) {
 	String str="leetcode";
 	Map<Character,CharCount> countMap=new HashMap<Character,CharCount>(256);

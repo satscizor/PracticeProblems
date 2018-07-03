@@ -1,7 +1,11 @@
-package arrays;
+package random;
 
 import java.util.Scanner;
-
+/*
+ * Basic level question
+ * Find the factorial of a given number
+ * 
+ */
 public class Factorial {
 
 	public static void main(String[] args) {
@@ -10,6 +14,7 @@ public class Factorial {
 		int num=sc.nextInt();
 		System.out.println("Number entered is "+num);
 		System.out.println("Factorial is :"+factorialIter(num));
+		System.out.println("Factorial is :"+factorial(num));
 		sc.close();
 	}
 	

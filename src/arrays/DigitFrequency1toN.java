@@ -1,6 +1,5 @@
 package arrays;
 
-import java.util.Arrays;
 
 /*
  * Given an unsorted array of n integers which can contain integers from 1 to n. 
@@ -22,8 +21,10 @@ public static void main(String[] args) {
     // element present at arr[i]%n to keep track of count of
     // occurrences of arr[i]
 	for(int i=0;i<n;i++) {
-		arr[arr[i]%n]=arr[arr[i]%n]+n;
-		System.out.println("State of array in iteration ["+(i+1)+"] is : "+Arrays.toString(arr));
+		int index=arr[i]%n;
+		//add the number to its appropriate bucket
+		arr[index]+=n;
+		//System.out.println("State of array in iteration ["+(i+1)+"] is : "+Arrays.toString(arr));
 	}
 	   // To print counts, simply print the number of times n
     // was added at index corresponding to every element

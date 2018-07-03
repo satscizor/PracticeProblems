@@ -1,7 +1,10 @@
 package arrays;
 
 import java.util.Arrays;
-
+/*
+ * Remove duplicates and pull the distinct element to the start of the array
+ * 
+ */
 public class RemoveDupes {
 public static void main(String[] args) {
 	//int arr[]=new int[] {0,0,1,1,1,2,2,3,3,4};

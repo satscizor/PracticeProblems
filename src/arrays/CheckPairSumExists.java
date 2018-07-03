@@ -3,7 +3,7 @@ package arrays;
 import java.util.Arrays;
 
 /*
- * Given an array A[] and a number x, check for pair in A[] with sum as x
+ * Given an array A[] and a number x, check for pair in A[] with sum as x.
  */
 public class CheckPairSumExists {
 public static void main(String[] args) {
@@ -12,6 +12,9 @@ public static void main(String[] args) {
 	Arrays.sort(array);
 	int low=0;
 	int high =array.length-1;
+	/*
+	 * Sort and use meet in the middle rule
+	 */
 	while (low<high) {
 		if(array[low]+array[high]==sum) {
 			System.out.println("Found : "+array[low]+" and "+array[high]);
