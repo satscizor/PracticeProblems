@@ -10,7 +10,9 @@ public class SecondMinimum {
 		
 		findSecondMin(arr3);
 	}
-
+	
+	
+	//Single traversal
 	private static void findSecondMin(int[] arr2) {
 		int min=Integer.MAX_VALUE;
 		int smin=Integer.MAX_VALUE;

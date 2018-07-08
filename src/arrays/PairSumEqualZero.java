@@ -15,6 +15,7 @@ public class PairSumEqualZero {
 		int minsum=Integer.MAX_VALUE;
 		int minlow=Integer.MAX_VALUE;
 		int minhigh=Integer.MAX_VALUE;
+		//Meet in the middle logic,just use separate flags to find the minimum high and minimum low.
 		while (low<high) {
 			if(Math.abs(arr[low]+arr[high])<minsum) {
 				minsum=Math.abs(arr[low]+arr[high]);

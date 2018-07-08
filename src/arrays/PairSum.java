@@ -1,10 +1,7 @@
 package arrays;
 
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 /*
  * Number of pairs whose sum is equal to the given sum
@@ -56,7 +53,7 @@ public class PairSum {
 			//Check if sum exists
 			if(freqMap.get(sum-arr[i]) != null)
 				counter+=freqMap.get(sum-arr[i]);
-			
+			//Reduce the counter if the same i value is picked
 			if(sum-arr[i]== arr[i])
 				counter--;
 		}
