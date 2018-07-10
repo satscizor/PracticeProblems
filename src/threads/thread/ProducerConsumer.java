@@ -1,4 +1,4 @@
-package threadpool.threads;
+package threads.thread;
 
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;

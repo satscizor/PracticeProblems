@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-
+/**
+ * Returns true if any three consecutive integers in the
+ * internal list have given total.
+ */
 public class MovingTotal {
 	
 	List<Integer> mainlist=new ArrayList<Integer>(); 

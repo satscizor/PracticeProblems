@@ -1,4 +1,4 @@
-package threadpool.threads;
+package threads.thread;
 
 class ThreadJoinDemo extends Thread{
 	static ThreadJoinDemo thread1;
